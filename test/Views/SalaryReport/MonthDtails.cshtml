@@ -1,0 +1,76 @@
+﻿@model IEnumerable<test.Models.Attendance>
+
+@{
+    ViewData["Title"] = "MonthDtails";
+}
+
+<div class="card">
+    <div>
+        <a asp-controller="Employee" asp-action="DetailsEmployee" asp-route-id="@ViewData["Id"]" class="btn btn-bitbucket m-2">Employe Name: @ViewData["Name"]</a>
+
+    </div>
+    <div class="card-body collapse show">
+        <div class="card-block card-dashboard">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CheckIn)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CheckOut)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OverTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DiscountTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Absent)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Attend)
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CheckIn)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CheckOut)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OverTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DiscountTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Absent)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Attend)
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a class="btn btn-secondary" asp-action="Index">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

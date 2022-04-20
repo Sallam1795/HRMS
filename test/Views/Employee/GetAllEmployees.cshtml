@@ -1,0 +1,76 @@
+﻿@model IEnumerable<test.Models.Employee>
+
+@{
+    //ViewData["Title"] = "GetAllEmployees";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            <a class=" btn btn-bitbucket" asp-controller="Employee" asp-action="AddEmployee"><i class="bi bi-person-plus"></i>Add New Employee</a>
+        </p>
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead class="text-center">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StartWork)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PhoneNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Salary)
+                            </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartWork.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Salary)
+                                </td>
+
+
+                                <td>
+                                    <a class="btn btn-warning" asp-controller="Employee" asp-action="updateEmployee" asp-route-id="@item.Id">Edit</a>
+                                    <a class="btn btn-secondary" asp-action="DetailsEmployee" asp-route-id="@item.Id">Details</a>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<test.Models.Holidays>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card">
+            <p class="m-2">
+                <a class=" btn btn-bitbucket" asp-controller="Holiday" asp-action="AddHoliday">Add New vacation</a>
+            </p>
+            <div class="card-header">
+                <div class="card-title-wrap bar-success">
+                    <h4 class="card-title" id="horz-layout-basic">Official vacation</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div  class="table-responsive">
+                    <table class="table">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Date</td>
+                                    <td><a asp-action="UpdateHoliday" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
